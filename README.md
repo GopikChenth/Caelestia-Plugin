@@ -1,146 +1,143 @@
-# Caelestia Plugins Suite
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="Caelestia Plugins Suite - Windows PowerToys-inspired productivity plugins for Caelestia Shell on Hyprland">
+</p>
 
-A collection of **Windows PowerToys-inspired** productivity plugins for **Caelestia Shell** on **Hyprland** (Wayland), built with Quickshell, QtQuick, and native Wayland utilities.
-
-Each plugin is completely self-contained in its own separate directory with its own manifest, settings, service, UI components, CLI launcher, and standalone installer.
+<p align="center">
+  <a href="#-quick-install"><img src="https://img.shields.io/badge/install-1--command-89b4fa?style=flat-square&logo=gnubash&logoColor=white" alt="1-Command Install"></a>
+  <a href="#-included-plugins"><img src="https://img.shields.io/badge/plugins-3%20included-cba6f7?style=flat-square" alt="3 Plugins Included"></a>
+  <a href="https://github.com/hyprwm/Hyprland"><img src="https://img.shields.io/badge/compositor-Hyprland-94e2d5?style=flat-square&logo=wayland&logoColor=white" alt="Hyprland"></a>
+  <a href="https://quickshell.outfoxxed.me/"><img src="https://img.shields.io/badge/shell-Quickshell%20%2F%20QtQuick-f5c2e7?style=flat-square" alt="Quickshell"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-a6adc8?style=flat-square" alt="License"></a>
+</p>
 
 ---
 
-## ⚡ 1-Command Installation On Any Device
+## ⚡ Quick Install
 
-To install and implement the entire plugin suite on **any device with Caelestia Shell**, run:
+Install and configure the complete plugin suite on any device running **Caelestia Shell**:
 
 ```bash
-./install.sh
+git clone https://github.com/GopikChenth/Caelestia-Plugin.git ~/.config/caelestia/plugins-repo
+cd ~/.config/caelestia/plugins-repo
+./install.sh all
 ```
 
-Or clone and install in one step:
-```bash
-git clone https://github.com/<user>/caelestia-plugins.git ~/.config/caelestia/plugins-repo && ~/.config/caelestia/plugins-repo/install.sh all
-```
+> [!TIP]
+> The automated installer detects missing dependencies on Arch (`pacman`), Fedora (`dnf`), Ubuntu/Debian (`apt`), and openSUSE (`zypper`), creates module symlinks, registers system CLI shortcuts, and syncs Hyprland keybindings.
 
-### Advanced Installation Options:
+<details>
+<summary><b>Advanced Installation &amp; Management Options</b></summary>
+
 ```bash
 ./install.sh all                 # Install all plugins (default)
 ./install.sh color-picker        # Install only Color Picker
 ./install.sh text-extractor      # Install only Text Extractor (OCR)
 ./install.sh news-feed           # Install only News Feed
-./install.sh --link              # Symlink files instead of copying (for development)
-./install.sh -y all              # Non-interactive mode (auto-accepts package install)
+./install.sh --link              # Symlink files instead of copying (for active dev)
+./install.sh -y all              # Non-interactive mode (auto-accepts package installations)
 ./install.sh --check             # Check status of system dependencies & plugins
-./uninstall.sh [all|plugin]      # Clean uninstaller (or: ./install.sh --uninstall all)
+./uninstall.sh [all|plugin]      # Clean uninstaller
 ```
+
+</details>
 
 ---
 
 ## 📦 Included Plugins
 
-### 1. 🎨 [`color-picker`](./color-picker/)
-A Windows PowerToys-inspired Color Picker with a multi-format inspector, luminance shade generator, and color history.
+### 1. 🎨 Color Picker
+A multi-format screen color sampler and shade inspector powered by `hyprpicker`.
+
 - **Engine**: `hyprpicker`, `wl-copy`, `notify-send`
-- **Formats**: HEX, HEX (no #), RGB, HSL, HSV, CMYK
-- **Features**: Live magnifier zoom lens, Euclidean color name matching, 5-tier shades generator, HSV/RGB sliders, persistent color history.
-- **Entry Points**: Nexus Settings (`Settings.qml`), Bar Widget (`BarWidget.qml`), Drawer Quick Toggle (`QuickToggle.qml`), Floating Window (`ColorEditorWindow.qml`), CLI (`caelestia-color-picker`).
-- **Individual Installer**: `./color-picker/install.sh` (Uninstall: `./color-picker/uninstall.sh`)
+- **Supported Formats**: HEX, HEX (no `#`), RGB, HSL, HSV, CMYK
+- **Key Features**:
+  - Live magnifier loupe with Euclidean color name matching
+  - 5-tier luminance shade generator
+  - Dynamic HSV/RGB fine-tuning sliders
+  - Persistent color history with quick copy
+- **Access Points**: `SUPER + SHIFT + C`, Nexus Settings, Bar Widget, Drawer Quick Toggle, CLI (`caelestia-color-picker`)
 
-### 2. 🔍 [`text-extractor`](./text-extractor/)
-A Windows PowerToys-inspired Screen OCR Text Extractor for instant optical character recognition from any screen area.
-- **Engine**: `slurp` + `grim` (Wayland capture) + `tesseract 5.5` (LSTM neural OCR) + `wl-copy` + `notify-send`
-- **Features**: Interactive region selection with custom crosshair styling, instant in-memory capture, multi-language recognition (`eng`, `spa`, `fra`, `deu`, `jpn`, etc.), single-line cleaner, multi-format copy toolbar (Plain, Single-line, Markdown, UPPERCASE, lowercase, JSON), and persistent history.
-- **Entry Points**: Nexus Settings (`Settings.qml`), Bar Widget (`BarWidget.qml`), Drawer Quick Toggle (`QuickToggle.qml`), Floating Window (`TextExtractorWindow.qml`), CLI (`caelestia-text-extractor`), Script (`extract.sh`).
-- **Individual Installer**: `./text-extractor/install.sh` (Uninstall: `./text-extractor/uninstall.sh`)
+### 2. 🔍 Text Extractor (OCR)
+Instant optical character recognition for any screen region powered by neural LSTM OCR.
 
-### 3. 📰 [`news-feed`](./news-feed/)
-A customizable RSS & Atom news feed manager and live reader for Midnight Shell.
+- **Engine**: `slurp` + `grim` (Wayland capture) + `tesseract 5.5` (LSTM engine) + `wl-copy`
+- **Key Features**:
+  - Interactive rectangular region selection with customized crosshair overlay
+  - Multi-language recognition support (`eng`, `spa`, `fra`, `deu`, `jpn`, etc.)
+  - Multi-format copy toolbar: Plain Text, Single-line Cleaner, Markdown, UPPERCASE, lowercase, and JSON string
+  - Persistent capture history and instant notification feedback
+- **Access Points**: `SHIFT + SUPER + T`, Nexus Settings, Bar Widget, Drawer Quick Toggle, CLI (`caelestia-text-extractor`)
+
+### 3. 📰 News Feed
+Curated RSS & Atom feed reader and notification center for Midnight / Caelestia Shell.
+
 - **Engine**: Native Quickshell XML/JSON networking (`XMLHttpRequest`, `FileView`, `xdg-open`)
-- **Features**: Multi-feed aggregation, live feed testing & validation, 1-click curated presets library (Arch Linux, CachyOS, Phoronix, Hacker News, GamingOnLinux, etc.), reordering, persistent sync with `~/.config/caelestia/news.json`, and dynamic sidebar reader.
-- **Entry Points**: Nexus Settings (`Settings.qml`), Bar Widget (`BarWidget.qml`), Drawer Quick Toggle (`QuickToggle.qml`), Sidebar Reader (`News.qml`), CLI (`caelestia-news-feed`), Singleton Service (`NewsService.qml`).
-- **Individual Installer**: `./news-feed/install.sh` (Uninstall: `./news-feed/uninstall.sh`)
-
----
-
-## 📁 Repository Structure
-
-```text
-Caelestia Plugins/
-├── color-picker/                  # Color Picker Plugin (Self-contained)
-│   ├── manifest.json              # Plugin manifest
-│   ├── settings.json              # Default preferences & history
-│   ├── ColorUtils.js              # Color conversion & math utilities
-│   ├── ColorService.qml           # Core process & state singleton
-│   ├── ColorEditorCard.qml        # Color inspector card UI
-│   ├── ColorEditorWindow.qml      # Floating window component
-│   ├── Settings.qml               # Nexus Settings page
-│   ├── QuickToggle.qml            # Utilities drawer toggle
-│   ├── BarWidget.qml              # Status bar widget
-│   ├── caelestia-color-picker     # CLI activation launcher
-│   ├── install.sh                 # Individual plugin installer
-│   ├── uninstall.sh               # Individual plugin uninstaller
-│   ├── main.qml                   # Quickshell standalone runner
-│   ├── qmldir                     # QML module export definitions
-│   └── README.md                  # Documentation
-│
-├── news-feed/                     # News Feed Plugin (Self-contained)
-│   ├── manifest.json              # Plugin manifest
-│   ├── settings.json              # Initial preferences
-│   ├── News.qml                   # Live sidebar reader component
-│   ├── NewsUtils.js               # RSS/Atom XML parser & presets catalog
-│   ├── NewsService.qml            # Feed caching & networking singleton
-│   ├── Settings.qml               # Nexus Settings feed manager
-│   ├── QuickToggle.qml            # Drawer quick toggle
-│   ├── BarWidget.qml              # Status bar widget
-│   ├── caelestia-news-feed        # CLI activation launcher
-│   ├── install.sh                 # Individual plugin installer
-│   ├── uninstall.sh               # Individual plugin uninstaller
-│   ├── main.qml                   # Quickshell standalone runner
-│   ├── qmldir                     # QML module export definitions
-│   └── README.md                  # Documentation
-│
-├── text-extractor/                # Text Extractor OCR Plugin (Self-contained)
-│   ├── manifest.json              # Plugin manifest
-│   ├── settings.json              # User preferences & OCR history
-│   ├── extract.sh                 # Native Wayland OCR pipeline runner
-│   ├── caelestia-text-extractor   # CLI activation launcher
-│   ├── TextUtils.js               # String formatting utilities
-│   ├── TextService.qml            # OCR process & state singleton
-│   ├── TextExtractorCard.qml      # OCR inspector card UI
-│   ├── TextExtractorWindow.qml    # Floating window component
-│   ├── Settings.qml               # Nexus Settings page
-│   ├── QuickToggle.qml            # Drawer quick toggle
-│   ├── BarWidget.qml              # Status bar widget
-│   ├── install.sh                 # Individual plugin installer
-│   ├── uninstall.sh               # Individual plugin uninstaller
-│   ├── main.qml                   # Quickshell standalone runner
-│   ├── qmldir                     # QML module export definitions
-│   └── README.md                  # Documentation
-│
-├── install.sh                     # Master universal installer for any device
-├── uninstall.sh                   # Master universal uninstaller
-├── scan-plugins.py                # Dynamic multi-path plugin discovery scanner
-├── .gitignore                     # Git ignore rules
-└── README.md                      # Suite overview & installation guide
-```
+- **Key Features**:
+  - Multi-feed aggregation with live feed testing & validation
+  - 1-click curated presets (Arch Linux News, CachyOS, Phoronix, Hacker News, GamingOnLinux)
+  - Persistent synchronization with `~/.config/caelestia/news.json`
+  - Dynamic sidebar reader with read/unread tracking
+- **Access Points**: Sidebar Reader (`News.qml`), Nexus Settings, Bar Widget, Drawer Quick Toggle, CLI (`caelestia-news-feed`)
 
 ---
 
 ## ⌨️ Shortcuts & CLI Commands
 
-| Plugin | Keybinding | CLI Trigger | Description |
+| Plugin | Keybinding | CLI Trigger | Action |
 | :--- | :--- | :--- | :--- |
-| **Color Picker** | `SUPER + SHIFT + C` | `caelestia-color-picker` | Pick color on screen & open inspector |
-| **Text Extractor** | `SHIFT + SUPER + T` | `caelestia-text-extractor` | Drag region & extract OCR text |
-| **News Feed** | — | `caelestia-news-feed` | Open news sidebar (`open`, `next`, `reload`) |
+| **Color Picker** | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd> | `caelestia-color-picker` | Pick screen color & open inspector |
+| **Text Extractor** | <kbd>SHIFT</kbd> + <kbd>SUPER</kbd> + <kbd>T</kbd> | `caelestia-text-extractor` | Drag screen region & copy OCR text |
+| **News Feed** | *(Configurable)* | `caelestia-news-feed` | Toggle news sidebar (`open`, `next`, `reload`) |
 
 ---
 
-## 🛠️ Automated Device Implementation
+## 🏗️ Architecture & Module Structure
 
-When `install.sh` runs on any device, it automatically handles:
-1. **Dependency Resolution**: Checks and auto-installs missing packages using `pacman`, `dnf`, `apt`, or `zypper`.
-2. **Directory Resolution**: Creates standard `~/.config/caelestia/plugins/` and `~/.config/quickshell/caelestia/modules/`.
-3. **Module Symlinks**: Connects Quickshell modules so `shell.qml` imports work immediately.
-4. **CLI Launchers**: Copies executables to `~/.local/bin/` so they can be run from terminal or keybindings.
-5. **State Activation**: Registers all plugins in `~/.config/caelestia/plugins-state.json`.
-6. **Hyprland Rules**: Injects keybindings and floating/pinned window rules into `~/.config/caelestia/hypr-user.lua` or `~/.config/hypr/hyprland.conf`.
-7. **Shell Integration**: Ensures IPC handlers and window wrappers in `shell.qml` are present.
-8. **Nexus Settings**: Enables immediate management through **Nexus Settings -> System -> Plugins**.
+Every plugin is completely self-contained with its own manifest, settings, service singleton, UI cards, and standalone installer:
+
+```text
+Caelestia Plugins/
+├── assets/
+│   └── readme/
+│       └── hero.svg               # Material 3 showcase banner
+├── color-picker/                  # Color Picker Plugin (Self-contained)
+│   ├── manifest.json              # Plugin metadata & entry points
+│   ├── settings.json              # User preferences & color history
+│   ├── ColorUtils.js              # Color conversion & math utilities
+│   ├── ColorService.qml           # Core process & state singleton
+│   ├── ColorEditorCard.qml        # Color inspector card UI
+│   ├── ColorEditorWindow.qml      # Floating window component
+│   └── caelestia-color-picker     # CLI activation launcher
+├── news-feed/                     # News Feed Plugin (Self-contained)
+│   ├── manifest.json              # Plugin metadata & entry points
+│   ├── settings.json              # Initial preferences & preset URLs
+│   ├── News.qml                   # Live sidebar reader component
+│   ├── NewsUtils.js               # RSS/Atom XML parser
+│   ├── NewsService.qml            # Feed caching & networking singleton
+│   └── caelestia-news-feed        # CLI activation launcher
+├── text-extractor/                # Text Extractor OCR Plugin (Self-contained)
+│   ├── manifest.json              # Plugin metadata & entry points
+│   ├── settings.json              # User preferences & OCR history
+│   ├── extract.sh                 # Native Wayland OCR pipeline runner
+│   ├── TextUtils.js               # String formatting utilities
+│   ├── TextService.qml            # OCR process & state singleton
+│   ├── TextExtractorCard.qml      # OCR inspector card UI
+│   └── caelestia-text-extractor   # CLI activation launcher
+├── install.sh                     # Master universal multi-distro installer
+├── uninstall.sh                   # Master universal uninstaller
+└── scan-plugins.py                # Dynamic multi-path plugin discovery scanner
+```
+
+---
+
+## 🛠️ Automated Setup Workflow
+
+When `install.sh` runs, it executes the following pipeline:
+
+1. **Dependency Resolution**: Queries package manager (`pacman`, `dnf`, `apt`, `zypper`) for missing binaries (`hyprpicker`, `grim`, `slurp`, `tesseract`, `wl-clipboard`).
+2. **Directory Initialization**: Creates standard paths in `~/.config/caelestia/plugins/` and `~/.config/quickshell/caelestia/modules/`.
+3. **Module Linking**: Links Quickshell modules so `shell.qml` imports resolve seamlessly.
+4. **Binary Placement**: Installs wrappers into `~/.local/bin/` for instant terminal and shortcut execution.
+5. **State Registration**: Enables all active plugins in `~/.config/caelestia/plugins-state.json`.
+6. **Hyprland Rules**: Injects keybindings and floating window rules into `~/.config/caelestia/hypr-user.lua` or `~/.config/hypr/hyprland.conf`.
+7. **Nexus Settings**: Integrates control panels under **Nexus Settings &rarr; System &rarr; Plugins**.
