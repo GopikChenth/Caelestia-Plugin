@@ -64,17 +64,26 @@
 
     <!-- Plugin Quick Pills -->
     <g transform="translate(0, 180)">
-      <rect x="0" y="0" width="126" height="34" rx="17" fill="#181825" stroke="#89B4FA" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="5" fill="#89B4FA"/>
-      <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#CDD6F4">Color Picker</text>
+      <!-- Pill 1: Color Picker -->
+      <g transform="translate(0, 0)">
+        <rect width="126" height="34" rx="17" fill="#181825" stroke="#89B4FA" stroke-width="1.2"/>
+        <circle cx="18" cy="17" r="5" fill="#89B4FA"/>
+        <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#CDD6F4">Color Picker</text>
+      </g>
 
-      <rect x="138" y="0" width="136" height="34" rx="17" fill="#181825" stroke="#CBA6F7" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="5" fill="#CBA6F7"/>
-      <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#CDD6F4">OCR Extractor</text>
+      <!-- Pill 2: OCR Extractor -->
+      <g transform="translate(138, 0)">
+        <rect width="136" height="34" rx="17" fill="#181825" stroke="#CBA6F7" stroke-width="1.2"/>
+        <circle cx="18" cy="17" r="5" fill="#CBA6F7"/>
+        <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#CDD6F4">OCR Extractor</text>
+      </g>
 
-      <rect x="286" y="0" width="122" height="34" rx="17" fill="#181825" stroke="#94E2D5" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="5" fill="#94E2D5"/>
-      <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#CDD6F4">News Feed</text>
+      <!-- Pill 3: News Feed -->
+      <g transform="translate(286, 0)">
+        <rect width="122" height="34" rx="17" fill="#181825" stroke="#94E2D5" stroke-width="1.2"/>
+        <circle cx="18" cy="17" r="5" fill="#94E2D5"/>
+        <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#CDD6F4">News Feed</text>
+      </g>
     </g>
 
     <!-- Command Snippet Box -->
