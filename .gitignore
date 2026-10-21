@@ -1,0 +1,25 @@
+# Caelestia Plugins Suite .gitignore
+# System & Editor artifacts
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Temporary & backup files
+*.bak
+*.bak.*
+*.tmp
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE & Editor configs
+.vscode/
+.idea/
+
+# Lock files if any generated dynamically
+/tmp/caelestia-*.lock
+caelestia-*.lock

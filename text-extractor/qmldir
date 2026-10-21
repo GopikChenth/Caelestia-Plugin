@@ -1,0 +1,7 @@
+module textextractor
+singleton TextService 1.0 TextService.qml
+TextExtractorCard 1.0 TextExtractorCard.qml
+TextExtractorWindow 1.0 TextExtractorWindow.qml
+Settings 1.0 Settings.qml
+QuickToggle 1.0 QuickToggle.qml
+BarWidget 1.0 BarWidget.qml

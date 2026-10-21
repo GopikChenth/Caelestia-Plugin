@@ -1,0 +1,77 @@
+{
+    "defaultFormat": "HEX",
+    "autoCopy": true,
+    "sendNotification": true,
+    "openEditorOnPick": true,
+    "zoomLens": true,
+    "zoomScale": 5,
+    "circleRadius": 40,
+    "maxHistory": 20,
+    "history": [
+        {
+            "hex": "#732182",
+            "name": "Rebecca purple",
+            "rgb": "rgb(115, 33, 130)"
+        },
+        {
+            "hex": "#BD4DD1",
+            "name": "Medium orchid",
+            "rgb": "rgb(189, 77, 209)"
+        },
+        {
+            "hex": "#D07FDE",
+            "name": "Orchid",
+            "rgb": "rgb(208, 127, 222)"
+        },
+        {
+            "hex": "#1B1519",
+            "name": "Black",
+            "rgb": "rgb(27, 21, 25)"
+        },
+        {
+            "hex": "#3B82F6",
+            "name": "Royal blue",
+            "rgb": "rgb(59, 130, 246)"
+        },
+        {
+            "hex": "#120E12",
+            "name": "Picked Color",
+            "rgb": "rgb(18, 14, 18)"
+        },
+        {
+            "hex": "#312A31",
+            "name": "Picked Color",
+            "rgb": "rgb(49, 42, 49)"
+        },
+        {
+            "hex": "#201B21",
+            "name": "Picked Color",
+            "rgb": "rgb(32, 27, 33)"
+        },
+        {
+            "hex": "#201A20",
+            "name": "Picked Color",
+            "rgb": "rgb(32, 26, 32)"
+        },
+        {
+            "hex": "#10B981",
+            "name": "Spring green",
+            "rgb": "rgb(16, 185, 129)"
+        },
+        {
+            "hex": "#EF4444",
+            "name": "Red",
+            "rgb": "rgb(239, 68, 68)"
+        },
+        {
+            "hex": "#F59E0B",
+            "name": "Orange",
+            "rgb": "rgb(245, 158, 11)"
+        },
+        {
+            "hex": "#8B5CF6",
+            "name": "Medium purple",
+            "rgb": "rgb(139, 92, 246)"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "pluginEnabled": true,
+    "refreshInterval": 30,
+    "maxArticles": 20,
+    "openInBrowser": true,
+    "notifyOnCriticalArchNews": true,
+    "activeFeedIndex": 0
+}

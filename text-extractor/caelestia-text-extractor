@@ -1,0 +1,40 @@
+#!/bin/bash
+# Caelestia Text Extractor activation launcher
+# Directly invokes extract.sh with instant response, or toggles window if window_only behavior is selected
+
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/caelestia"
+SETTINGS_FILE="$CONFIG_DIR/text-extractor-settings.json"
+
+# Resolve extract.sh location dynamically
+SCRIPT_PATH=""
+if [ -f "$CONFIG_DIR/plugins/text-extractor/extract.sh" ]; then
+    SCRIPT_PATH="$CONFIG_DIR/plugins/text-extractor/extract.sh"
+elif [ -n "$CAELESTIA_PLUGINS_DIR" ] && [ -f "$CAELESTIA_PLUGINS_DIR/text-extractor/extract.sh" ]; then
+    SCRIPT_PATH="$CAELESTIA_PLUGINS_DIR/text-extractor/extract.sh"
+elif [ -f "$(dirname "$0")/extract.sh" ]; then
+    SCRIPT_PATH="$(dirname "$0")/extract.sh"
+elif [ -f "$(dirname "$0")/../text-extractor/extract.sh" ]; then
+    SCRIPT_PATH="$(dirname "$0")/../text-extractor/extract.sh"
+elif [ -f "$HOME/Projects/Caelestia Plugins/text-extractor/extract.sh" ]; then
+    SCRIPT_PATH="$HOME/Projects/Caelestia Plugins/text-extractor/extract.sh"
+fi
+
+BEHAVIOR="extract_only"
+if [ -f "$SETTINGS_FILE" ]; then
+    VAL=$(grep -o '"activationBehavior"[[:space:]]*:[[:space:]]*"[^"]*"' "$SETTINGS_FILE" | head -1 | cut -d'"' -f4)
+    if [ -n "$VAL" ]; then
+        BEHAVIOR="$VAL"
+    fi
+fi
+
+if [ "$BEHAVIOR" = "window_only" ]; then
+    exec qs -c caelestia ipc call textExtractor toggle
+else
+    if [ -n "$SCRIPT_PATH" ] && [ -x "$SCRIPT_PATH" ]; then
+        exec "$SCRIPT_PATH" "$@"
+    else
+        echo "Error: extract.sh not found. Looked in $CONFIG_DIR/plugins/text-extractor/" >&2
+        notify-send -a "Text Extractor" -u critical "Text Extractor Error" "extract.sh pipeline not found. Please run installer." 2>/dev/null || true
+        exit 1
+    fi
+fi

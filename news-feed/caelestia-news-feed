@@ -1,0 +1,27 @@
+#!/bin/bash
+# Caelestia News Feed activation launcher
+# Triggers resident shell daemon to open news tab in sidebar or cycle feeds
+ACTION="${1:-open}"
+
+case "$ACTION" in
+    open|toggle)
+        qs -c caelestia ipc call newsFeed open 2>/dev/null || caelestia shell drawers toggleTab sidebar news 2>/dev/null || true
+        ;;
+    next)
+        qs -c caelestia ipc call newsFeed next 2>/dev/null || true
+        ;;
+    reload)
+        qs -c caelestia ipc call newsFeed reload 2>/dev/null || true
+        ;;
+    -h|--help)
+        echo "Usage: $(basename "$0") [open|toggle|next|reload]"
+        echo "  open   : Open sidebar to News tab (default)"
+        echo "  next   : Cycle to next RSS feed"
+        echo "  reload : Reload and fetch latest articles"
+        exit 0
+        ;;
+    *)
+        echo "Usage: $(basename "$0") [open|toggle|next|reload]"
+        exit 1
+        ;;
+esac

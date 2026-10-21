@@ -1,0 +1,9 @@
+#!/bin/bash
+# Caelestia Color Picker activation
+# Triggers the resident shell daemon which checks configured activation behavior (editor / pick / both)
+qs -c caelestia ipc call colorPicker trigger 2>/dev/null || {
+    hex=$(hyprpicker -a -b)
+    if [ -n "$hex" ]; then
+        qs -c caelestia ipc call colorPicker open "$hex" 2>/dev/null || true
+    fi
+}

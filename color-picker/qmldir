@@ -1,0 +1,7 @@
+module colorpicker
+singleton ColorService 1.0 ColorService.qml
+ColorEditorCard 1.0 ColorEditorCard.qml
+ColorEditorWindow 1.0 ColorEditorWindow.qml
+Settings 1.0 Settings.qml
+QuickToggle 1.0 QuickToggle.qml
+BarWidget 1.0 BarWidget.qml

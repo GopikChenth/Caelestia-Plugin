@@ -1,0 +1,20 @@
+{
+    "id": "caelestia-text-extractor",
+    "name": "Text Extractor",
+    "version": "1.0.0",
+    "author": "gopik",
+    "description": "Screen OCR text extractor",
+    "icon": "document_scanner",
+    "category": "utilities",
+    "enabled": true,
+    "entryPoints": {
+        "settings": "Settings.qml",
+        "barWidget": "BarWidget.qml",
+        "quickToggle": "QuickToggle.qml",
+        "window": "TextExtractorWindow.qml",
+        "service": "TextService.qml"
+    },
+    "requirements": {
+        "binaries": ["slurp", "grim", "tesseract", "wl-copy", "notify-send"]
+    }
+}

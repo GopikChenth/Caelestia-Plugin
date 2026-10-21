@@ -1,0 +1,20 @@
+{
+    "id": "caelestia-color-picker",
+    "name": "Color Picker",
+    "version": "1.0.0",
+    "author": "gopik",
+    "description": "Color picker & format inspector",
+    "icon": "colorize",
+    "category": "utilities",
+    "enabled": true,
+    "entryPoints": {
+        "settings": "Settings.qml",
+        "barWidget": "BarWidget.qml",
+        "quickToggle": "QuickToggle.qml",
+        "window": "ColorEditorWindow.qml",
+        "service": "ColorService.qml"
+    },
+    "requirements": {
+        "binaries": ["hyprpicker", "wl-copy", "notify-send"]
+    }
+}

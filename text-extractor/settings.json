@@ -1,0 +1,25 @@
+{
+    "pluginEnabled": true,
+    "activationShortcut": "SHIFT + SUPER + T",
+    "activationBehavior": "extract_and_window",
+    "ocrLanguage": "eng",
+    "psmMode": 3,
+    "singleLineMode": false,
+    "autoCopy": true,
+    "sendNotification": true,
+    "openWindowOnExtract": true,
+    "slurpBorderColor": "#89B4FA",
+    "slurpBgColor": "#16141788",
+    "maxHistory": 20,
+    "history": [
+        {
+            "id": "1",
+            "text": "Component: slurp + grim\nOCR Engine: tesseract 5.5 + tesseract-data-eng\nClipboard: wl-copy\nNotifications: notify-send",
+            "snippet": "Component: slurp + grim OCR Engine: tesseract 5.5...",
+            "charCount": 118,
+            "wordCount": 15,
+            "lang": "eng",
+            "timestamp": "Sample Clip"
+        }
+    ]
+}

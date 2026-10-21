@@ -1,0 +1,20 @@
+{
+    "id": "caelestia-news-feed",
+    "name": "News Feed",
+    "version": "1.0.0",
+    "author": "gopik",
+    "description": "RSS & Atom feed reader",
+    "icon": "feed",
+    "category": "utilities",
+    "enabled": true,
+    "entryPoints": {
+        "settings": "Settings.qml",
+        "service": "NewsService.qml",
+        "barWidget": "BarWidget.qml",
+        "quickToggle": "QuickToggle.qml",
+        "sidebar": "News.qml"
+    },
+    "requirements": {
+        "binaries": ["curl", "notify-send", "xdg-open"]
+    }
+}

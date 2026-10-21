@@ -1,0 +1,7 @@
+module newsfeed
+singleton NewsService 1.0 NewsService.qml
+Settings 1.0 Settings.qml
+QuickToggle 1.0 QuickToggle.qml
+BarWidget 1.0 BarWidget.qml
+News 1.0 News.qml
+
